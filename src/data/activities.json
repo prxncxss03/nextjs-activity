@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Activity 1",
+        "description": "Description of Activity 1",
+        "image": "/images/1.png"
+    },
+    {
+        "id": 2,
+        "name": "Activity 2",
+        "description": "Description of Activity 2",
+        "image": "/images/1.png"
+    },
+    {
+        "id": 3,
+        "name": "Activity 3",
+        "description": "Description of Activity 3",
+        "image": "/images/1.png"
+    },
+    {
+        "id": 4,
+        "name": "Activity 4",
+        "description": "Description of Activity 4",
+        "image": "/images/1.png"
+    },
+    {
+        "id": 5,
+        "name": "Activity 5",
+        "description": "Description of Activity 5",
+        "image": "/images/1.png"
+    }
+]
