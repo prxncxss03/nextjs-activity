@@ -1,32 +1,50 @@
 [
-    {
-        "id": 1,
-        "name": "Activity 1",
-        "description": "Description of Activity 1",
-        "image": "/images/1.png"
-    },
-    {
-        "id": 2,
-        "name": "Activity 2",
-        "description": "Description of Activity 2",
-        "image": "/images/1.png"
-    },
-    {
-        "id": 3,
-        "name": "Activity 3",
-        "description": "Description of Activity 3",
-        "image": "/images/1.png"
-    },
-    {
-        "id": 4,
-        "name": "Activity 4",
-        "description": "Description of Activity 4",
-        "image": "/images/1.png"
-    },
-    {
-        "id": 5,
-        "name": "Activity 5",
-        "description": "Description of Activity 5",
-        "image": "/images/1.png"
-    }
+  {
+    "id": 1,
+    "name": "Activity 1",
+    "description": "Create a simple webpage that displays the text 'Hello World' centered both vertically and horizontally within the browser window using HTML and CSS.",
+    "image": "/images/1.png"
+  },
+  {
+    "id": 2,
+    "name": "Activity 2",
+    "description": "Develop a counter application with increment and decrement buttons, an indication of whether the count is odd or even, and a reset button to return the counter to zero.",
+    "image": "/images/2.png"
+  },
+  {
+    "id": 3,
+    "name": "Activity 3",
+    "description": "Build a basic calculator that allows users to add two numbers through input fields, displaying the sum in real-time without needing an equals button, along with a reset option to clear inputs.",
+    "image": "/images/3.png"
+  },
+  {
+    "id": 4,
+    "name": "Activity 4",
+    "description": "Create a centered button labeled 'GROW' that doubles in size and changes to a random color each time it is clicked, enhancing interactivity and visual appeal.",
+    "image": "/images/4.png"
+  },
+  {
+    "id": 5,
+    "name": "Activity 5",
+    "description": "Implement a basic to-do list application that allows users to add, remove, and toggle the completion status of tasks, providing a straightforward task management experience.",
+    "image": "/images/5.png"
+  },
+  {
+    "id": 6,
+    "name": "Activity 6: Pokemon API",
+    "description": "Fetch and display data from a chosen API as cards, each featuring an avatar, a name, and a description. Use CSS Flexbox for a responsive design that adapts to various screen sizes.",
+    "image": "/images/6.png"
+  },
+  {
+    "id": 7,
+    "name": "Activity 7",
+    "description": "Select one of the previous applications, such as the to-do list, and implement tests using Jest and React Testing Library to ensure proper rendering, correct labels, and functional behavior.",
+    "image": "/images/7.png"
+  },
+  {
+    "id": 8,
+    "name": "Activity 8",
+    "description": "Enhance the to-do list application by integrating Supabase for data storage and user authentication, allowing persistent state and secure access to tasks, with full CRUD capabilities.",
+    "image": "/images/8.png"
+  }
 ]

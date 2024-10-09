@@ -1,9 +1,19 @@
 'use client'
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { verify } from "./action";
 
 const Activity3 = () => {
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            const data = await verify();
+            setUser(data);
+        }
+        fetchUserData();
+    }, []);
 
    const [num1, setNum1] = useState(0);
    const [num2, setNum2] = useState(0);
