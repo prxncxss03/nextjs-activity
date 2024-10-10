@@ -25,7 +25,7 @@ export default function Template({ children }) {
       setLoading(false);
     };
     fetchUserData();
-  }, []);
+  }, [currentActivity]);
 
   return (
     <div className="h-screen flex flex-col">

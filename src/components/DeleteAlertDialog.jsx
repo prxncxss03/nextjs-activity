@@ -13,17 +13,24 @@ import {
 const DeleteAlertDialog = ({ onConfirm, onCancel, taskName }) => {
   return (
     <AlertDialog>
-      <AlertDialogTrigger className="text-red-500 text-sm">Delete</AlertDialogTrigger>
+      <AlertDialogTrigger className="text-red-500 text-sm">
+        Delete
+      </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>Delete Task</AlertDialogTitle>
           <AlertDialogDescription>
-            Are you sure you want to delete "{taskName}"?
+            Are you sure you want to delete &quot;{taskName}&quot;?
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel onClick={onCancel}>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={onConfirm}>Continue</AlertDialogAction>
+          <AlertDialogAction
+            className="bg-red-500 text-white hover:bg-red-600"
+            onClick={onConfirm}
+          >
+            Continue
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
