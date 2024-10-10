@@ -15,12 +15,14 @@ import Activities from "../data/activities.json";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { verify, logout } from "./activity/action";
 import { useEffect, useState } from "react";
+import { Skeleton } from "@/components/ui/skeleton"
 
 import UserProfile from "@/components/UserProfile";
 
 export default function Home() {
   const router = useRouter();
   const [user, setUser] = useState(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -50,7 +52,7 @@ export default function Home() {
       </header>
 
       {/* Title */}
-      <h1 className="text-4xl font-extrabold text-gray-900 mb-6">Activities</h1>
+      <h1 className="text-4xl font-extrabold text-gray-900 mb-6">🚀 Activities</h1>
 
       {/* Activities Section */}
       <div className="flex flex-wrap justify-center gap-2 w-full max-w-5xl">
@@ -69,13 +71,18 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex justify-center items-center">
-                <Image
+                
+            
+                    <Image
                   src={activity.image}
                   alt={activity.name}
                   width={310}
                   height={150}
                   className="rounded-lg select-none"
+                  placeholder = 'blur' 
+                  blurDataURL = {activity.image}
                 />
+                  
               </CardContent>
               <CardFooter className="flex justify-center">
                 <Button
