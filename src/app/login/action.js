@@ -18,7 +18,6 @@ export async function signup() {
   if (error) {
     redirect('/error')
   } else {
-    console.log('data', data)
     redirect(data.url)
   }
 }

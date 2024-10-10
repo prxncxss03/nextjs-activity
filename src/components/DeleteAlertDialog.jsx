@@ -13,7 +13,7 @@ import {
 const DeleteAlertDialog = ({ onConfirm, onCancel, taskName }) => {
   return (
     <AlertDialog>
-      <AlertDialogTrigger className="text-red-500">Delete</AlertDialogTrigger>
+      <AlertDialogTrigger className="text-red-500 text-sm">Delete</AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>Delete Task</AlertDialogTitle>

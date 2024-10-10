@@ -1,38 +1,49 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Button } from '@/components/ui/button'; // Adjust this import as necessary for your setup
+import { useState } from "react";
+import { Button } from "@/components/ui/button"; 
 
 const Activity4 = () => {
-  // State to track button size and background color
-  const [size, setSize] = useState(1); // Initial size is 1 (normal)
-  const [bgColor, setBgColor] = useState('bg-blue-500'); // Default color
+  const [size, setSize] = useState(1);
+  const [bgColor, setBgColor] = useState("bg-blue-800");
 
-  // Function to generate a random color class
   const getRandomColor = () => {
     const colors = [
-      'bg-red-500',
-      'bg-green-500',
-      'bg-blue-500',
-      'bg-yellow-500',
-      'bg-purple-500',
-      'bg-pink-500',
-      'bg-indigo-500',
+      "bg-red-500",
+      "bg-blue-300",
+      "bg-green-700",
+      "bg-yellow-400",
+      "bg-purple-600",
+      "bg-pink-200",
+      "bg-teal-500",
+      "bg-indigo-400",
+      "bg-orange-300",
+      "bg-rose-600",
+      "bg-cyan-500",
+      "bg-lime-300",
+      "bg-violet-700",
+      "bg-amber-400",
+      "bg-fuchsia-500",
+      "bg-emerald-600",
+      "bg-gray-500",
+      "bg-sky-300",
+      "bg-stone-700",
+      "bg-slate-400",
     ];
+
     return colors[Math.floor(Math.random() * colors.length)];
   };
 
-  // Function to handle the click event (size doubling and color change)
   const handleClick = () => {
-    setSize(size * 2); // Double the size
-    setBgColor(getRandomColor()); // Change to a random color
+    setSize(size * 2);
+    setBgColor(getRandomColor());
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <Button 
-        onClick={handleClick} 
-        className={`${bgColor} text-white px-6 py-3 transition-all duration-300`} 
+    <div className="flex justify-center items-center h-full">
+      <Button
+        onClick={handleClick}
+        className={`${bgColor} text-white px-6 py-3 transition-all duration-300`}
         style={{ transform: `scale(${size})` }}
       >
         GROW

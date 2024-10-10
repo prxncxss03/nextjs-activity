@@ -2,14 +2,13 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/utils/supabase/server";
 
-const getSupabaseClientAndUser = async () => {
+export const getSupabaseClientAndUser = async () => {
   const supabase = createClient();
   const user = await supabase.auth.getUser();
   return { supabase, user: user.data.user };
 };
 
 export const getAllTasks = async () => {
-  console.log("getAllTasks");
   const { supabase, user } = await getSupabaseClientAndUser();
 
   let { data: tasks, error } = await supabase
@@ -20,12 +19,9 @@ export const getAllTasks = async () => {
     .order("created_at", { ascending: false });
 
   if (error) {
-    console.error("error from getAll tasks", error);
-    return;
+    throw new Error("Failed to fetch tasks");
   }
 
-  console.log("Inside get all tasks action file");
-  console.log("tasks", tasks);
   return tasks;
 };
 
@@ -40,11 +36,9 @@ export const getAllCompletedTasks = async () => {
     .order("created_at", { ascending: false });
 
   if (error) {
-    console.error("error from getAll completed tasks", error);
-    return;
+    throw new Error("Failed to fetch completed tasks");
   }
 
-  console.log("completed tasks", tasks);
   return tasks;
 };
 
@@ -57,18 +51,13 @@ export const createTask = async (name) => {
     .select();
 
   if (error) {
-    console.error("error from create task", error);
-    return;
+    throw new Error("Failed to create task");
   }
-  console.log("newTask", newTask);
   return newTask;
 };
 
 export const updateNameOfTask = async (id, name) => {
   const { supabase, user } = await getSupabaseClientAndUser();
-  console.log("inside updateNameOfTask");
-  console.log("id", id);
-  console.log("name", name);
 
   const { data: updatedTaskName, error } = await supabase
     .from("tasks")
@@ -78,10 +67,8 @@ export const updateNameOfTask = async (id, name) => {
     .select();
 
   if (error) {
-    console.error("error from update task", error);
-    return;
+    throw new Error("Failed to update task name");
   }
-  console.log("updatedTaskName", updatedTaskName);
   return updatedTaskName;
 };
 
@@ -95,10 +82,8 @@ export const updateTaskCompletion = async (id, isCompleted) => {
     .select();
 
   if (error) {
-    console.error("error from update task", error);
-    return;
+    throw new Error("Failed to update task completion");
   }
-  console.log("updatedTaskCompletion", updatedTaskCompletion);
   return updatedTaskCompletion;
 };
 
@@ -108,8 +93,7 @@ export const deleteTask = async (id) => {
   const { error } = await supabase.from("tasks").delete().eq("id", id);
 
   if (error) {
-    console.error("error from delete task", error);
-    return;
+    throw new Error("Failed to delete task");
   }
   return true;
 };

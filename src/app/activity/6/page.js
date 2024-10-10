@@ -10,11 +10,10 @@ import Image from "next/image";
 
 async function fetchPokemonData() {
   const response = await fetch(`
-        https://pokeapi.co/api/v2/pokemon
+    ${process.env.NEXT_PUBLIC_POKEMON_BASE_URL}/pokemon
     `);
 
   if (!response.ok) {
-    console.error("Failed to fetch data:", response);
     throw new Error("Failed to fetch data");
   }
   return response.json();
@@ -22,11 +21,10 @@ async function fetchPokemonData() {
 
 const fetchPokemonDescription = async (name) => {
   const response = await fetch(`
-            https://pokeapi.co/api/v2/pokemon-species/${name}
+            ${process.env.NEXT_PUBLIC_POKEMON_BASE_URL}/pokemon-species/${name}
         `);
 
   if (!response.ok) {
-    console.error("Failed to fetch data:", response);
     throw new Error("Failed to fetch data");
   }
   return response.json();
@@ -48,7 +46,7 @@ const Activity6 = async () => {
               </CardHeader>
               <CardContent>
                 <Image
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
+                  src={`${process.env.NEXT_PUBLIC_POKEMON_IMAGE_URL}/${
                     index + 1
                   }.png`}
                   alt={pokemon.name}

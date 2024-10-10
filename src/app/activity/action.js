@@ -1,25 +1,23 @@
-'use server'
-import { redirect } from 'next/navigation'
+"use server";
+import { redirect } from "next/navigation";
 
-import { AuthUser } from '@supabase/supabase-js'
-import { createClient } from '@/lib/utils/supabase/server'
-export async function verify() {
-  const supabase = createClient()
+import { createClient } from "@/lib/utils/supabase/server";
+export async function verify(route) {
+  const supabase = createClient();
 
-  const { data, error } = await supabase.auth.getUser()
+  const { data, error } = await supabase.auth.getUser();
   if (error || !data?.user) {
-    console.log("error", error);
+    if (route === "8") {
+      redirect("/login");
+    }
   }
-  return data
+  return data;
 }
 
 export async function logout() {
-  const supabase = createClient()
+  const supabase = createClient();
 
-  await supabase.auth.signOut()
-  console.log('logged out')
-  
+  await supabase.auth.signOut();
 
-  
-    redirect('/login')
+  redirect("/login");
 }
