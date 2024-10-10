@@ -19,7 +19,7 @@ const Activity7 = () => {
         </li>
         <li>
           Test for Correct Content: The second test ensures that the{" "}
-          <code>&lt;h1&gt;</code> tag contains the correct text, "Hello World."
+          <code>&lt;h1&gt;</code> tag contains the correct text, &quot;Hello World&quot;.
         </li>
       </ul>
       <Link
