@@ -7,6 +7,7 @@ import Image from "next/image";
 import { verify, logout } from "./action";
 import React, { useState, useEffect } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import UserProfile from "@/components/UserProfile";
 import { Toaster } from "@/components/ui/toaster";
 
 export default function Template({ children }) {
@@ -47,24 +48,7 @@ export default function Template({ children }) {
           {loading && user ? (
             <Skeleton className="h-10 w-10 rounded-full" />
           ) : user ? (
-            <div className="flex items-center space-x-2">
-              <Image
-                src={user.user_metadata.avatar_url}
-                alt={user.user_metadata.full_name}
-                width={40}
-                height={40}
-                className="rounded-full border border-gray-300"
-              />
-              <p className="text-gray-700">{user.user_metadata.full_name}</p>
-              <Button
-                variant="outline"
-                onClick={() => {
-                  logout();
-                }}
-              >
-                Logout
-              </Button>
-            </div>
+            <UserProfile user={user} />
           ) : (
             <Button onClick={() => router.push("/login")}>Login</Button>
           )}

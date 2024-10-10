@@ -13,11 +13,3 @@ export async function verify(route) {
   }
   return data;
 }
-
-export async function logout() {
-  const supabase = createClient();
-
-  await supabase.auth.signOut();
-
-  redirect("/login");
-}

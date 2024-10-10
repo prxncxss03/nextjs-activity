@@ -13,16 +13,40 @@ import {
 import { Button } from "@/components/ui/button";
 import Activities from "../data/activities.json";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { verify, logout } from "./activity/action";
+import { useEffect, useState } from "react";
+
+import UserProfile from "@/components/UserProfile";
 
 export default function Home() {
   const router = useRouter();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const data = await verify("/");
+      if (data && data.user) {
+        setUser(data.user);
+      }
+    };
+    fetchUserData();
+  }, []);
+
   return (
     <div className="flex h-screen flex-col items-center justify-between">
       {/* Header */}
       <header className="flex justify-end w-full p-6">
-        <Button onClick={() => router.push("/login")}>
-          Login
-        </Button>
+        {user ? (
+          <UserProfile user={user} />
+        ) : (
+          <Button
+            onClick={async () => {
+              router.push("/login");
+            }}
+          >
+            Login
+          </Button>
+        )}
       </header>
 
       {/* Title */}
@@ -37,7 +61,9 @@ export default function Home() {
               className="rounded-xl w-80 m-2 shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <CardHeader>
-                <CardTitle className="text-xl font-semibold">{activity.name}</CardTitle>
+                <CardTitle className="text-xl font-semibold">
+                  {activity.name}
+                </CardTitle>
                 <CardDescription className="text-sm text-gray-600">
                   {activity.description}
                 </CardDescription>
