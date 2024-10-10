@@ -72,6 +72,7 @@ export default function Home() {
           <Link
             href="https://github.com/prxncxss03"
             className="text-slate-500 hover:underline"
+            target="_blank"
           >
             Princess Pocon ☠️
           </Link>

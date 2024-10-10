@@ -24,7 +24,8 @@ const Activity7 = () => {
       </ul>
       <Link
         className="text-blue-500 mt-4"
-        href="https://github.com/prxncxss03/lifesaver-web-frontend/tree/develop/src"
+        target="_blank"
+        href="https://github.com/prxncxss03/nextjs-activity/blob/development/src/app/activity/1/__tests__/page.test.jsx"
       >
         View the source code on GitHub
       </Link>
