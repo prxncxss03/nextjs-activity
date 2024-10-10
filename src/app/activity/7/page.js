@@ -9,6 +9,8 @@ const Activity7 = () => {
         src="/images/a1-test.png"
         width={500}
         height={500}
+        placeholder="blur"
+        blurDataURL="/images/a1-test.png"
         alt="Test case example"
       />
       <h2 className="text-2xl font-bold mb-2">Test Case Explanation</h2>
