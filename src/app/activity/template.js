@@ -57,7 +57,13 @@ export default function Template({ children }) {
 
       {/* Main Content */}
       <main className="flex-grow w-full p-6 bg-gray-50 overflow-y-auto">
-        {usePathname().split("/").pop() === "8" && !user ? (
+        {currentActivity === "2" && !user ? (
+          <div className="flex flex-col items-center justify-center h-full">
+            <h1 className="text-2xl font-semibold text-gray-900">
+              Please login to view this activity
+            </h1>
+          </div>
+        ) : currentActivity === "8" && !user ? (
           <div className="flex flex-col items-center justify-center h-full">
             <h1 className="text-2xl font-semibold text-gray-900">
               Please login to view this activity
