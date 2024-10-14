@@ -7,8 +7,8 @@ export async function verify(route) {
 
   const { data, error } = await supabase.auth.getUser();
   if (error || !data?.user) {
-    if (route === "8") {
-      redirect("/login");
+    if (route === "8" || route === "2") {
+      redirect("/loginv2");
     }
   }
   return data;
